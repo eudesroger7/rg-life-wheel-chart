@@ -1,6 +1,6 @@
 {
   "name": "rg-life-wheel-chart",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A dynamic, customizable Life Wheel Chart component for React and Next.js",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
