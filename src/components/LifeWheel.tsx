@@ -21,6 +21,7 @@ export function LifeWheel({
   labelFontSize = 9,
   labelColor = "#374151",
   labelPadding = LABEL_PADDING_DEFAULT,
+  labelVariant = "radial",
   className,
   style,
   onAreaClick,
@@ -87,6 +88,7 @@ export function LifeWheel({
               color={resolvedColors[i]}
               strokeColor={strokeColor}
               strokeWidth={strokeWidth}
+              label={area.label}
               onClick={onAreaClick ? () => onAreaClick(area, i) : undefined}
             />
           );
@@ -114,6 +116,7 @@ export function LifeWheel({
               label={area.label}
               fontSize={labelFontSize}
               color={labelColor}
+              variant={labelVariant}
             />
           );
         })}

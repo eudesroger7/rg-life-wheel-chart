@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LifeWheel } from "rg-life-wheel-chart";
-import type { LifeArea } from "rg-life-wheel-chart";
+import type { LifeArea, LabelVariant } from "rg-life-wheel-chart";
 
 const DEFAULT_AREAS: LifeArea[] = [
   { label: "Saúde", value: 7 },
@@ -18,6 +18,7 @@ export default function App() {
   const [gridLevels, setGridLevels] = useState(10);
   const [labelFontSize, setLabelFontSize] = useState(9);
   const [strokeWidth, setStrokeWidth] = useState(1.5);
+  const [labelVariant, setLabelVariant] = useState<LabelVariant>("radial");
   const [clicked, setClicked] = useState<string | null>(null);
 
   function handleValueChange(index: number, value: number) {
@@ -108,6 +109,24 @@ export default function App() {
                 onChange={(e) => setStrokeWidth(Number(e.target.value))}
                 style={rangeStyle}
               />
+            </label>
+            <label style={labelStyle}>
+              Estilo do label: <strong>{labelVariant}</strong>
+              <select
+                value={labelVariant}
+                onChange={(e) =>
+                  setLabelVariant(e.target.value as LabelVariant)
+                }
+                style={{
+                  fontSize: 13,
+                  padding: "4px 8px",
+                  borderRadius: 6,
+                  border: "1px solid #d1d5db",
+                }}
+              >
+                <option value="radial">Radial</option>
+                <option value="aligned">Alinhado</option>
+              </select>
             </label>
           </div>
         </section>
@@ -210,6 +229,7 @@ export default function App() {
           gridLevels={gridLevels}
           labelFontSize={labelFontSize}
           strokeWidth={strokeWidth}
+          labelVariant={labelVariant}
           style={{ maxWidth: 520 }}
           onAreaClick={(area) => setClicked(area.label)}
         />
@@ -227,7 +247,12 @@ export default function App() {
             Ver código de exemplo
           </summary>
           <pre style={codeStyle}>
-            {generateSnippet(areas, { gridLevels, labelFontSize, strokeWidth })}
+            {generateSnippet(areas, {
+              gridLevels,
+              labelFontSize,
+              strokeWidth,
+              labelVariant,
+            })}
           </pre>
         </details>
       </main>
@@ -237,7 +262,12 @@ export default function App() {
 
 function generateSnippet(
   areas: LifeArea[],
-  opts: { gridLevels: number; labelFontSize: number; strokeWidth: number },
+  opts: {
+    gridLevels: number;
+    labelFontSize: number;
+    strokeWidth: number;
+    labelVariant: LabelVariant;
+  },
 ) {
   const areasStr = areas
     .map((a) => `  { label: "${a.label}", value: ${a.value} }`)
@@ -251,6 +281,7 @@ const areas = [\n${areasStr}\n];
   gridLevels={${opts.gridLevels}}
   labelFontSize={${opts.labelFontSize}}
   strokeWidth={${opts.strokeWidth}}
+  labelVariant="${opts.labelVariant}"
 />`;
 }
 

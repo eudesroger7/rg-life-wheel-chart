@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 
+export type LabelVariant = "radial" | "aligned";
+
 export interface LifeArea {
   /** Display label for the area */
   label: string;
@@ -28,6 +30,8 @@ export interface LifeWheelProps {
   labelColor?: string;
   /** Extra padding between wheel and label (default: 12) */
   labelPadding?: number;
+  /** Label layout variant: "radial" (along radius) or "aligned" (horizontal) (default: "radial") */
+  labelVariant?: LabelVariant;
   /** Optional className for the container div */
   className?: string;
   /** Optional inline styles for the container div */

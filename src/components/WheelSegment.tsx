@@ -10,6 +10,7 @@ interface WheelSegmentProps {
   color: string;
   strokeColor: string;
   strokeWidth: number;
+  label?: string;
   onClick?: () => void;
 }
 
@@ -23,6 +24,7 @@ export function WheelSegment({
   color,
   strokeColor,
   strokeWidth,
+  label,
   onClick,
 }: WheelSegmentProps) {
   const clampedValue = Math.min(10, Math.max(0, value));
@@ -51,6 +53,8 @@ export function WheelSegment({
       onMouseLeave={(e) => {
         (e.currentTarget as SVGPathElement).style.opacity = "1";
       }}
-    />
+    >
+      {label && <title>{label}</title>}
+    </path>
   );
 }
