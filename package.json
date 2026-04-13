@@ -1,6 +1,6 @@
 {
   "name": "rg-life-wheel-chart",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A dynamic, customizable Life Wheel Chart component for React and Next.js",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -24,7 +24,8 @@
     "release": "standard-version",
     "prepublishOnly": "npm run type-check && npm run build",
     "publish:public": "npm publish --access public",
-    "release:publish": "npm run release && npm run publish:public"
+    "release:publish": "npm run release && npm run publish:public",
+    "postpublish": "git push --follow-tags origin main"
   },
   "keywords": [
     "react",
