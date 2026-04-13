@@ -1,0 +1,66 @@
+{
+  "name": "rg-life-wheel-chart",
+  "version": "0.1.0",
+  "description": "A dynamic, customizable Life Wheel Chart component for React and Next.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c --watch",
+    "type-check": "tsc --noEmit",
+    "preview": "vite --config vite.config.preview.ts",
+    "release": "standard-version",
+    "prepublishOnly": "npm run type-check && npm run build",
+    "publish:public": "npm publish --access public",
+    "release:publish": "npm run release && npm run publish:public"
+  },
+  "keywords": [
+    "react",
+    "nextjs",
+    "life-wheel",
+    "chart",
+    "wheel-of-life",
+    "svg"
+  ],
+  "author": "Eudes Roger <eudesroger7@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eudesroger7/rg-life-wheel-chart.git"
+  },
+  "homepage": "https://rg-life-wheel-chart.eudesroger.com",
+  "bugs": {
+    "url": "https://github.com/eudesroger7/rg-life-wheel-chart/issues"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^25.6.0",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup": "^4.18.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "standard-version": "^9.5.0",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.0",
+    "vite": "^5.3.0"
+  }
+}
